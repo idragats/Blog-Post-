@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    {% if post.image %}
+        <img src="{{ post.image.url }}" alt="Post image" class="img-fluid">
+    {% endif %}
+    <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Back to Post List</a>
+</div>
+{% endblock %}

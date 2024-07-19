@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4 d-flex justify-content-center">
+    <div class="col-md-6">
+        <h2 class="text-center">{{ form_title }}</h2>
+        <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="id_title" class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" id="id_title" placeholder="Enter title" value="{{ form.title.value }}" required>
+                {% for error in form.title.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+            </div>
+            
+         
+            <div class="mb-3">
+                <label for="id_content" class="form-label">Content</label>
+                <textarea name="content" class="form-control" id="id_content" placeholder="Enter content" rows="4" required>{{ form.content.value }}</textarea>
+                {% for error in form.content.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+            </div>
+            
+           
+            <div class="mb-3">
+                <label for="id_image" class="form-label">Image</label>
+                <input type="file" name="image" class="form-control" id="id_image">
+                {% for error in form.image.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+            </div>
+            
+           
+            <button type="submit" class="btn btn-primary">{{ button_text }}</button>
+            <a href="{% url 'post_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-6 d-flex flex-column justify-content-center align-items-center">
+    <h2 class="mb-4">Are you sure you want to sign out?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Yes, Sign out</button>
+    </form>
+    <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Cancel</a>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+/* Example styling for the search button */
+.button-search {
+    background-color: #0d6efd; /* Match the primary button color */
+    color: white; /* Ensure the text is white */
+    border: none; /* Remove default border */
+    border-radius: 0.375rem; /* Match Bootstrap border radius */
+    padding: 0.375rem 0.75rem; /* Match Bootstrap padding */
+    font-size: 1rem; /* Match Bootstrap font size */
+    cursor: pointer; /* Add pointer cursor on hover */
+    font-weight: 400; /* Match Bootstrap font weight */
+    text-align: center; /* Center the text */
+}
+
+.button-search:hover {
+    background-color: #0b5ed7; /* Darker shade on hover */
+}
+
+.button-search:focus, .button-search.focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); /* Match Bootstrap focus shadow */
+}
+
+.button-search:disabled {
+    background-color: #6c757d; /* Disabled state */
+    cursor: not-allowed; /* Show not-allowed cursor */
+}

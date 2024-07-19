@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Are you sure you want to delete "{{ post.title }}" post? </h2>
+    <form method="POST">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a href="{% url 'post_list' %}" class="btn btn-success">Cancel</a>
+    </form>
+</div>
+{% endblock %}
