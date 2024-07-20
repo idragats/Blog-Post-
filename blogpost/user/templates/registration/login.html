@@ -6,9 +6,13 @@
         <h2 class="text-center">Sign in</h2>
         <form method="post" class="needs-validation" novalidate>
             {% csrf_token %}
-            
+			
+            {% if next %}
+                <input type="hidden" name="next" value="{{ next }}">
+            {% endif %}
+			
             <div class="mb-3">
-                <label for="id_username" class="form-label">Username</label>
+                <label for="id_username" class="form-label">Email</label>
                 <input type="text" name="username" class="form-control" id="id_username" placeholder="Enter username" required>
                 {% for error in form.username.errors %}
                     <div class="invalid-feedback d-block">{{ error }}</div>
@@ -23,7 +27,7 @@
                 {% endfor %}
             </div>
             
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
         {% if error %}
             <div class="alert alert-danger mt-3">

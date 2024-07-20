@@ -153,5 +153,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 
 LOGIN_URL = '/accounts/login'
-LOGIN_DIRECT_URL = '/index/'
-LOGOUT_DIRECT_URL = '/index/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_DIRECT_URL = '/'

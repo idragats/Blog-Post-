@@ -8,10 +8,12 @@
             <div class="card-body">
                 <h5 class="card-title">{{ post.title }}</h5>
                 <p class="card-text">{{ post.content }}</p>
-                {% if user.is_authenticated and post.author == user %}
-                    <a href="{% url 'post_update' post.pk %}" class="btn btn-primary">Edit</a>
-                    <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
-                {% endif %}
+                {% if user.is_authenticated %} 
+					{% if post.author == user %}
+						<a href="{% url 'post_update' post.pk %}" class="btn btn-primary">Edit</a>
+						<a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
+					{% endif %}
+				{% endif %}
             </div>
         </div>
     {% endfor %}

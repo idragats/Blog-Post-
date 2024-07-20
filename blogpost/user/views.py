@@ -8,9 +8,6 @@ from .forms import RegisterForm
 
 User = get_user_model()
 
-def index(request):
-    return render(request, 'index.html')
-
 def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -21,7 +18,7 @@ def register_view(request):
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
             login(request, user)
-            return redirect('login')  # Redirect to login page after successful registration
+            return redirect('home') 
     else:
         form = RegisterForm()
     return render(request, 'registration/register.html', {'form': form})
@@ -33,15 +30,19 @@ def login_view(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
-            login(request, user)
-            next_url = request.POST.get('next') or request.GET.get('next') or 'home'
-            return redirect(next_url)
+            if user:
+                login(request, user)
+                next_url = request.POST.get('next') or request.GET.get('next') or 'home'
+                return redirect(next_url)
+            else:
+                error_message = "Authentication failed. User is None."
         else:
             error_message = f"Invalid Credentials. Don't you have an account? <a href='{registration_url}'>Sign up here</a>"
     else:
         form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form': form, 'error': error_message})
-
+    
+    
 @login_required
 def logout_view(request):
     if request.method == 'POST':
