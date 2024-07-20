@@ -46,8 +46,8 @@ def post_update_view(request, post_id):
     
     return render(request, 'post_form.html', {
         'form': form,
-        'form_title': 'Update Post',
-        'button_text': 'Update Post'
+        'form_title': 'Edit Post',
+        'button_text': 'Submit Post'
     })
 
 # Delete post
