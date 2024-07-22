@@ -2,6 +2,10 @@
 A Blog Post Project Using Django Web Framework
 
 
+https://github.com/user-attachments/assets/89c9c894-376e-4c53-b441-620131b624b2
+
+
+
 ![sign_up](https://github.com/user-attachments/assets/2ff9d14b-9173-4645-9c3a-702ac48e9668) 
 
 ![Sign in](https://github.com/user-attachments/assets/b9ea8bef-4624-47b3-959b-e5ef0aca586c)
